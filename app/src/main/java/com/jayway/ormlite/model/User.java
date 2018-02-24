@@ -9,6 +9,10 @@ import com.jayway.ormlite.CustomDao;
 @DatabaseTable(tableName = User.TABLE_NAME_USERS, daoClass = CustomDao.class)
 public class User {
 
+    public User() {
+        // Don't forget the empty constructor, needed by ORMLite.
+    }   
+    
     public static final String TABLE_NAME_USERS = "users";
 
     public static final String FIELD_NAME_ID     = "id";
