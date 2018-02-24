@@ -6,6 +6,10 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = Role.TABLE_NAME_ROLES)
 public class Role {
 
+    public Role() {
+        // Don't forget the empty constructor, needed by ORMLite.
+    }  
+    
     public static final String TABLE_NAME_ROLES = "roles";
 
     public static final String FIELD_NAME_ID   = "id";
