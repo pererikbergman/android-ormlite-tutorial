@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);     
     }
 
     private void example() throws SQLException {
@@ -50,14 +50,14 @@ public class MainActivity extends AppCompatActivity {
         userDao.create(user);
 
         // Obtain the role
-        user = userDao.queryForId(0);
+        user = userDao.queryForId(user.getId());
         Role role = user.getRole();
 
         // One-to-many
         user = new User().setName("Clause");
         userDao.create(user); // Without creating the object this won't work.
 
-        final Dao<Email, Integer> emailsDao = DatabaseHelper.getInstance().getEmailDao();
+        final Dao<Email, Integer> emailsDao = helper.getEmailDao();
         emailsDao.create(new Email(user).setEmail("my@example.com"));
         emailsDao.create(new Email(user).setEmail("my2@example.com"));
 
